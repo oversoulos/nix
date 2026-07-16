@@ -1,0 +1,50 @@
+╔══════════════════════════════════════════════════════════════════════════╗
+║                          OVERSOUL NEXUS DASHBOARD                      ║
+╠══════════════════════════════════════════════════════════════════════════╣
+║                                                                          ║
+║  SYSTEM STATUS                                                           ║
+║  ────────────                                                           ║
+║  Uptime:        2h 14m                                                  ║
+║  CPU Load:      0.25                                                    ║
+║  Memory:        4.2G / 16G (26%)                                       ║
+║  Disk:          120G / 459G (26%)                                      ║
+║                                                                          ║
+║  ACTIVE MODE                                                            ║
+║  ────────────                                                           ║
+║  Current:      vibing                                                   ║
+║  Available:    vibing, schooling, building, creating, spiraling        ║
+║                                                                          ║
+║  AI SERVICE                                                             ║
+║  ────────────                                                           ║
+║  Status:       ● Running                                                ║
+║  Model:        mistral-7b-instruct-v0.2.Q5_K_M.gguf                     ║
+║  API URL:      http://localhost:5001                                   ║
+║                                                                          ║
+║  NETWORK                                                                ║
+║  ────────────                                                           ║
+║  Connection:   Connected (Ethernet)                                    ║
+║  IP Address:   192.168.1.100                                           ║
+║  Internet:     ✓ Online                                                 ║
+║  Bluetooth:    ✓ Active                                                 ║
+║                                                                          ║
+║  AVAILABLE SCRIPTS                                                      ║
+║  ────────────────                                                       ║
+║  health-check.sh   → Full system health report                         ║
+║  status.sh         → One-line system status                            ║
+║  mode-switch.sh    → Switch workspaces                                 ║
+║  ai-control.sh     → Start/stop/kill AI service                       ║
+║  clean-up.sh       → System cleanup                                   ║
+║  debug-tools.sh    → Diagnostics tools                                ║
+║  network-status.sh → Network status report                            ║
+║                                                                          ║
+║  MODE SUMMARY                                                           ║
+║  ─────────────                                                          ║
+║  🎵 Vibing      → Leisure & Social (Discord, YouTube, Spotify)        ║
+║  📚 Schooling   → Learning (Research, courses, note-taking)           ║
+║  🏗️ Building    → DevOps (Development, containers, projects)          ║
+║  🎨 Creating    → Content Production (Design, editing, writing)       ║
+║  🌀 Spiraling   → Deep Research (Unconstrained exploration)           ║
+║                                                                          ║
+╚══════════════════════════════════════════════════════════════════════════╝
+
+Last updated: 2024-01-15 14:32:45
