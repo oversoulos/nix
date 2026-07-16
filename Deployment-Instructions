@@ -1,0 +1,40 @@
+#!/usr/bin/env bash
+# Deployment script - run as root on the target system
+
+# 1. Clone the configuration
+sudo git clone https://github.com/your-repo/nixos-config /etc/nixos
+
+# 2. Check hardware configuration
+# If hardware-configuration.nix doesn't match your system:
+sudo nixos-generate-config --root /mnt
+# Then copy /mnt/etc/nixos/hardware-configuration.nix to /etc/nixos/
+
+# 3. Build and switch to new system
+sudo nixos-rebuild switch --flake /etc/nixos#my-system
+
+# 4. Set user password (if needed)
+sudo passwd user
+
+# 5. Create mode directories
+su - user -c "mkdir -p ~/modes/{vibing,schooling,building,creating,spiraling}"
+su - user -c "mkdir -p ~/models ~/oversoul/{config,scripts,publish}"
+
+# 6. Copy scripts to home directory
+sudo cp -r /etc/nixos/home/scripts ~/oversoul/
+chown -R user:user ~/oversoul/
+
+# 7. Make scripts executable
+chmod +x ~/oversoul/scripts/*.sh
+
+# 8. Create symlink for model (user will place actual model)
+ln -s ~/models/current-model.gguf ~/.model || true
+
+# 9. Start services
+sudo systemctl enable --now koboldcpp
+sudo systemctl enable --now bluetooth
+sudo systemctl enable --now NetworkManager
+
+# 10. Done!
+echo "System deployed successfully!"
+echo "Place your .gguf model in ~/models/current-model.gguf"
+echo "Run 'mode-switch' to select a workspace"
