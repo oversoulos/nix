@@ -83,7 +83,7 @@
         while true; do
           CURRENT_TIME=$(date +%s)
           ELAPSED=$((CURRENT_TIME - START_TIME))
-          if [ $ELAPSED -gt $TIMEOUT ]; thenhttps://github.com/oversoulos/nix/tree/deep/deepnix/modules/modes
+          if [ $ELAPSED -gt $TIMEOUT ]; then
             notify-send -t 5000 "Spiraling Timeout" "You have been in spiraling mode for $((ELAPSED/60)) minutes. Consider switching modes."
             break
           fi
