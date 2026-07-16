@@ -1,0 +1,22 @@
+name: Repository CI
+
+on:
+  push:
+  pull_request:
+  workflow_dispatch:
+
+jobs:
+  basic-checks:
+    name: Basic checks
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Validate repository contains README
+        run: test -f README.md
+
+      - name: Test (starter placeholder)
+        run: |
+          echo "No project test command is configured yet."
+          echo "Replace this step with your real test command when code is added."

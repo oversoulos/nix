@@ -1,0 +1,33 @@
+name: Repository Deploy
+
+on:
+  workflow_dispatch:
+    inputs:
+      confirm:
+        description: "Type yes to allow deployment"
+        required: true
+        default: "no"
+  release:
+    types: [published]
+
+jobs:
+  deploy:
+    name: Deploy
+    runs-on: ubuntu-latest
+    environment: production
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Confirm deploy for manual runs
+        if: github.event_name == 'workflow_dispatch'
+        run: |
+          if [ "${{ github.event.inputs.confirm }}" != "yes" ]; then
+            echo "Deployment cancelled. Re-run with confirm=yes."
+            exit 1
+          fi
+
+      - name: Deploy (starter placeholder)
+        run: |
+          echo "This is a starter deploy workflow."
+          echo "Replace this step with your real deploy command."
