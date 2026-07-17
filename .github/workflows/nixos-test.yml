@@ -1,0 +1,25 @@
+name: "Test NixOS Build"
+
+on:
+  push:
+    branches: [ deep ]
+  pull_request:
+    branches: [ deep ]
+
+jobs:
+  test-build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+
+      - name: Install Nix
+        uses: determinatesystems/determinate-nix-action@v1
+
+      - name: Build NixOS Configuration
+        run: |
+          if [ -f flake.nix ]; then
+            nix flake check
+          else
+            nix-env -f '<nixpkgs/nixos>' -I nixos-config=./configuration.nix -qa_
+          fi

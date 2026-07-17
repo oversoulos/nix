@@ -1,0 +1,31 @@
+#!/usr/bin/env bash
+# Quick system status - one-line summary for Waybar
+
+set -euo pipefail
+
+# Get active mode
+if [ -f /tmp/current-mode ]; then
+    MODE=$(cat /tmp/current-mode)
+else
+    MODE="none"
+fi
+
+# Memory usage
+MEM_TOTAL=$(free -g | grep Mem | awk '{print $2}')
+MEM_USED=$(free -g | grep Mem | awk '{print $3}')
+MEM_PERC=$((MEM_USED * 100 / MEM_TOTAL))
+
+# CPU load
+LOAD=$(cat /proc/loadavg | awk '{print $1}')
+
+# AI status
+if systemctl is-active --quiet koboldcpp 2>/dev/null; then
+    AI_STATUS="on"
+else
+    AI_STATUS="off"
+fi
+
+# Uptime
+UPTIME=$(uptime -p | sed 's/up //')
+
+echo "⏱ $UPTIME | 🔢 $LOAD | 🧠 ${MEM_USED}G/${MEM_TOTAL}G (${MEM_PERC}%) | 📁 $MODE | 🤖 $AI_STATUS"
